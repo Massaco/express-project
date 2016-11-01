@@ -31,14 +31,13 @@ router.route('/pgusers')
       sort: req.query.sort,
       //offset: parseInt(req.query.offset), 
       limit: parseInt(req.query.limit),
-      page: req.query.page
+      page: parseInt(req.query.page)
     };
-
     User.paginate({}, options).then(function(result) {                
-      res.links({
-        next: 'http://' + req.hostname + '/pgusers?page=2',
-        last: 'http://' + req.hostname + '/pgusers?page=5'
-      });
+      // res.links({
+      //   next: 'http://' + req.hostname + '/pgusers?limit='+req.query.limit+'&page='+result.page,
+      //   last: 'http://' + req.hostname + '/pgusers?limit='+req.query.limit+'&page='+result.pages
+      // });
       res.status(200).json(result);
     });
   });
