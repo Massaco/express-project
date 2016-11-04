@@ -7,7 +7,9 @@ var config  = require('../../config');
 router.route('/score')
     .post(function(req, res) {
         var score = new Score();
-        score.score = req.body.score;   
+        score.c2array = req.body.c2array;
+           score.data = req.body.data;
+           score.size = req.body.size;
         score.save(function(err) {
             if (err) res.send(err);
             res.json({success: true, message: 'Score Saved!' });
