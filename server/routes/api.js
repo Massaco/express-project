@@ -5,8 +5,8 @@ var config  = require('../../config');
 
 // TODO http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/
 
-router.use(require('./authenticate')); // Before middleware 
-router.use(require('./signup'));
+//router.use(require('./authenticate')); // Before middleware 
+//router.use(require('./signup'));
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
@@ -30,8 +30,8 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.use(require('./users'));
-router.use(require('./countries'));
+//router.use(require('./users'));
+//router.use(require('./countries'));
 router.use(require('./score'));
 
 router.get('/', function(req, res) {    
